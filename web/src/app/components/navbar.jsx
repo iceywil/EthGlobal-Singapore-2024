@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useAccount, useBalance } from 'wagmi';
-import { ethers } from 'ethers';
+import { formatUnits } from 'ethers'; // Import formatUnits from ethers
 import Onramp from './onramp';
 import Offramp from './offramp';
 import Link from 'next/link';
@@ -30,7 +30,7 @@ export default function Navbar() {
 
 	useEffect(() => {
 		if (balanceData && balanceData.value) {
-			setUsdcBalance(ethers.utils.formatUnits(balanceData.value, 6)); // Format USDC balance
+			setUsdcBalance(formatUnits(balanceData.value, 6)); // Format USDC balance using formatUnits
 		}
 	}, [balanceData]);
 
@@ -60,7 +60,7 @@ export default function Navbar() {
 						<div className="text-gray-600 border-2 p-2 border-black">
 							{isConnected ? `Balance: ${usdcBalance} USDC` : 'Balance: 0 USDC'}
 						</div>
-						<w3m-button show="hide" label={isConnected ? 'Connected' : 'Login'} />
+						<w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
 					</div>
 				</nav>
 			</div>

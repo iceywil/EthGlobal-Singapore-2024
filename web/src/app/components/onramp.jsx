@@ -1,8 +1,17 @@
 import { MoonPayBuyWidget } from '@moonpay/moonpay-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Onramp() {
 	const [visible, setVisible] = useState(false);
+	const [isBrowser, setIsBrowser] = useState(false);
+
+	useEffect(() => {
+		setIsBrowser(true);
+	}, []);
+
+	if (!isBrowser) {
+		return null; // or a loading placeholder
+	}
 
 	return (
 		<div>
