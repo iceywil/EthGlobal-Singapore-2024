@@ -36,35 +36,35 @@ export default function Navbar() {
 
 	return (
 
-				<header className="container mx-auto px-4 py-4 flex items-center justify-between">
+		<header className="container mx-auto px-4 py-4 flex items-center justify-between">
 
-					<div className="flex-1 basis-1/3 flex justify-start">
-						<Input
-							className="max-w-xs bg-[#D9D9D9] border-none text-center"
-							placeholder="Search projects, creators, categories"
-							style={{ borderRadius: '20px' }}
-						/>
-					</div>
-					<Link href="/" className="flex-1 basis-1/3 flex justify-center">
-						<Image
-							src="/handsup.png"
-							alt="handsUp Logo"
-							width={80}
-							height={20}
-							className="header-logo"
-						/>
-					</Link>
-					<nav className="flex-1 basis-1/3 flex items-center justify-end space-x-8">
-						<div className="flex items-center space-x-4">
-							{isConnected && (
-								<div className="text-gray-600 border-2 p-2 border-black rounded-full">
-									Balance: {usdcBalance} USDC
-								</div>
-							)}
-							<w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
+			<div className="flex-1 basis-1/3 flex justify-start">
+				<Input
+					className="max-w-xs bg-[#D9D9D9] border-none text-center"
+					placeholder="Search projects, creators, categories"
+					style={{ borderRadius: '20px' }}
+				/>
+			</div>
+			<Link href="/" className="flex-1 basis-1/3 flex justify-center">
+				<Image
+					src="/handsup.png"
+					alt="handsUp Logo"
+					width={80}
+					height={20}
+					className="header-logo"
+				/>
+			</Link>
+			<nav className="flex-1 basis-1/3 flex items-center justify-end space-x-8">
+				<div className="flex items-center space-x-4">
+					{isConnected && (
+						<div className="text-gray-600 border-2 p-2 border-black rounded-full">
+							Balance: {usdcBalance} USDC
 						</div>
-					</nav>
-				</header>
+					)}
+					<w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
+				</div>
+			</nav>
+		</header>
 
 	);
 }
