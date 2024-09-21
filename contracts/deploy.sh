@@ -1,0 +1,1 @@
+ETHERSCAN_API_KEY=14XGE1G4VWY314CHN65RHIW3G1K449SH1N forge create --rpc-url https://rpc.sepolia.linea.build --private-key 0xd7be28655d1ee02c5e6ce7aa3bfc4dda11b1e60b0b22036044072b09930726b4 --etherscan-api-key 14XGE1G4VWY314CHN65RHIW3G1K449SH1N --verify src/HandOutFactory.sol:HandOutFactory

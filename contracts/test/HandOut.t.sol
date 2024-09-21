@@ -29,7 +29,7 @@ contract HandOutTest is Test {
         mockToken.approve(address(handOut), 1000 ether);
 
         // Contribute to the campaign
-        handOut.contribute(500 ether);
+        handOut.contribute(500 ether, false);
 
         (,, uint256 totalDeposited,,,) = handOut.getCampaignDetails();
         assertEq(totalDeposited, 500 ether, "Total deposited should be updated");
