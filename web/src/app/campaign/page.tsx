@@ -85,7 +85,7 @@ export default function Component() {
       <div className="w-full border-b-[2px] border-[#D42A20]">
         <Navbar/>
       </div>
-      <main className="flex-grow container mx-auto px-4 py-8 overflow-hidden">
+      <main className="flex-grow container mx-auto px-4 py-8 md:pt-24 overflow-hidden">
         <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${step * 100}%)` }}>
           <section className="w-full flex-shrink-0">
             <h2 className="text-3xl font-serif mb-6 text-center text-gray-900">What are the funds for ?</h2>

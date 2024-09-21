@@ -1,4 +1,4 @@
-
+"use client"
 
 import Landing from "./landing";
 import Campaign from "./campaign/page";
