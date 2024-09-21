@@ -1,6 +1,7 @@
 "use client";
 
-import Handout from "./handout";
+import Landing from "./landing";
+import Campaign from "./campaign/page";
 import { MoonPayProvider } from '@moonpay/moonpay-react';
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
 				apiKey="pk_test_k497jsJzweBMFOhxsVUtst4nysd21jSs"
 				debug
 			>
-				<Handout />
+				<Landing />
 			</MoonPayProvider >
 		</div>
 	);
