@@ -1,17 +1,14 @@
 "use client";
 
-import Handout from "./handout";
-import { MoonPayProvider } from '@moonpay/moonpay-react';
+import dynamic from 'next/dynamic';
+
+// Dynamically import the Handout component with SSR disabled
+const Handout = dynamic(() => import('./handout'), { ssr: false });
 
 export default function Home() {
 	return (
-		<div>
-			< MoonPayProvider
-				apiKey="pk_test_k497jsJzweBMFOhxsVUtst4nysd21jSs"
-				debug
-			>
-				<Handout />
-			</MoonPayProvider >
-		</div>
+		<main>
+			<Handout />
+		</main>
 	);
 }
