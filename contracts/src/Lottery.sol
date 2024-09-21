@@ -2,10 +2,10 @@
 pragma solidity ^0.8.27;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {IYieldManager} from "./IYieldManager.sol";
+import {IYieldStrategy} from "./IYieldStrategy.sol";
 
 contract Lottery is Ownable {
-    IYieldManager public yieldManager;
+    IYieldStrategy public yieldStrategy;
     string public name;
     uint256 public duration;
     uint256 public startAt;
@@ -20,21 +20,21 @@ contract Lottery is Ownable {
     event LotteryEnded(address indexed winner, uint256 prize);
     event RewardClaimed(address indexed player, uint256 amount);
 
-    constructor(string _name, uint256 _duration, uint256 _startAt, uint256 _totalWinners, IYieldManager _yieldManager)
+    constructor(string _name, uint256 _duration, uint256 _startAt, uint256 _totalWinners, IYieldStrategy _yieldStrategy)
         Ownable()
     {
         name = _name;
         duration = _duration;
         startAt = _startAt;
         totalWinners = _totalWinners;
-        yieldManager = _yieldManager;
+        yieldStrategy = _yieldStrategy;
     }
 
     function enterLottery(uint256 amount) external payable {
         require(amount > 0, "Amount must be greater than 0");
         require(block.timestamp < startAt + duration, "Lottery is closed");
 
-        yieldManager.deposit(amount);
+        yieldStrategy.deposit(amount);
         totalAmount += amount;
         totalPlayers += 1;
         players[msg.sender] += amount;
@@ -45,8 +45,8 @@ contract Lottery is Ownable {
     function endLottery() public onlyOwner {
         require(block.timestamp >= startAt + duration, "Lottery is still open");
 
-        uint256 prize = yieldManager.estimateYield();
-        yieldManager.withdraw(prize);
+        uint256 prize = yieldStrategy.estimateYield();
+        yieldStrategy.withdraw(prize);
         totalWinners += 1;
 
         emit LotteryEnded(winner, prize);

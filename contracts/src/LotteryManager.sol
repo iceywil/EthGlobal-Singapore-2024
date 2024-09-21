@@ -3,7 +3,7 @@ pragma solidity ^0.8.27;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {Lottery} from "./Lottery.sol";
-import {IYieldManager} from "./IYieldManager.sol";
+import {IYieldStrategy} from "./IYieldStrategy.sol";
 
 contract LotteryManager is Ownable {
     Lottery[] public lotteries;
@@ -21,9 +21,9 @@ contract LotteryManager is Ownable {
         uint256 _duration,
         uint256 _startAt,
         uint256 _totalWinners,
-        IYieldManager _yieldManager
+        IYieldStrategy _yieldStrategy
     ) public onlyOwner returns (Lottery) {
-        Lottery lottery = new Lottery(_name, _duration, _startAt, _totalWinners, _yieldManager);
+        Lottery lottery = new Lottery(_name, _duration, _startAt, _totalWinners, _yieldStrategy);
 
         lotteries.push(lottery);
         isLottery[address(lottery)] = true;

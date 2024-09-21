@@ -2,8 +2,8 @@
 pragma solidity ^0.8.27;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {IYieldManager} from "./IYieldManager.sol";
+import {IYieldStrategy} from "./IYieldStrategy.sol";
 
-contract StargateUSDCArbitrum is Ownable, IYieldManager {
+contract StargateUSDCArbitrum is Ownable, IYieldStrategy {
     constructor() Ownable() {}
 }
