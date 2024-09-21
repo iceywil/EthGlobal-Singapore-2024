@@ -15,8 +15,19 @@ const query = gql`
       id
       creator
       campaignAddress
+      name
+      description
+      imageURL
+      tags
+      raisingFor
+      need
+      beneficiary
+      goal
+      duration
+      yieldStrategy
       blockNumber
       blockTimestamp
+      transactionHash
     }
   }
 `;
@@ -109,23 +120,25 @@ export default function Component() {
             <Link href={`/campaign/${campaign.campaignAddress}`} key={index}>
               <Card key={index} className="mb-6">
                 <CardHeader>
-                  <CardTitle>{campaign.name}</CardTitle>
+                  <CardTitle className="text-black">{campaign.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-500 mb-2">
                     Contract Address: {campaign.campaignAddress}
                   </p>
                   <p className="text-sm text-gray-500 mb-4">
-                    Deployed:{" "}
-                    {new Date(campaign.blockTimestamp).toLocaleString()}
+                    Deployed: {}
+                    {new Date(campaign.blockTimestamp * 1000).toLocaleString()}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {/* {campaign.tags.map((tag, tagIndex) => (
-                      <Badge key={tagIndex} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))} */}
-                  </div>
+                  {campaign.tags && campaign.tags.length > 0 ? (
+                    <div className="flex flex-wrap gap-2">
+                      {campaign.tags.map((tag, tagIndex) => (
+                        <Badge key={tagIndex} variant="secondary">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  ) : undefined}
                 </CardContent>
               </Card>
             </Link>

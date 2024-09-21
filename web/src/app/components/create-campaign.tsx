@@ -11,26 +11,54 @@ import { useToast } from "@/hooks/use-toast";
 import { ToastAction } from "@/components/ui/toast";
 import Link from "next/link";
 
-export function CreateCampaign() {
-  const { address } = useAccount();
+interface CreateCampaignProps {
+  name: string;
+  tags: string[];
+  raisingFor: string;
+  need: string;
+  goal: bigint;
+}
+
+export function CreateCampaign({
+  name,
+  tags,
+  raisingFor,
+  need,
+  goal,
+}: CreateCampaignProps) {
+  const { address, chainId } = useAccount();
   const { toast } = useToast();
 
   const { data: hash, error, isPending, writeContract } = useWriteContract();
 
+  const explorer =
+    chainId == 59141
+      ? "https://sepolia.lineascan.build"
+      : "https://evm-testnet.flowscan.io/";
   async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
     writeContract({
-      address: "0xfb979d86e10fd018803c8bd8d74c131d813893e1",
+      address:
+        chainId == 59141
+          ? "0x0707594e6123c32a24ad5C646B2ECB735322EC95"
+          : "0xfB979D86e10Fd018803C8bd8D74C131d813893e1",
       abi: parseAbi([
-        "function createHandOutCampaign(address _beneficiary, uint256 _goal, uint256 _duration, address _yieldStrategy)",
+        "function createHandOutCampaign(string memory _name,        string memory _description,        string memory _imageURL,        string[] memory _tags,        string memory _raisingFor,        string memory _need,        address _beneficiary,        uint256 _goal,        uint256 _duration,        address _yieldStrategy)",
       ]),
       functionName: "createHandOutCampaign",
       args: [
+        name,
+        `A campaign to raise funds for ${raisingFor} to address ${need}`,
+        "https://source.unsplash.com/random",
+        tags,
+        raisingFor,
+        "Urgent",
         address as `0x${string}`,
-        BigInt(10000) * BigInt(10) ** BigInt(18),
+        goal * BigInt(10) ** BigInt(18),
         BigInt(60 * 60 * 24 * 30),
-        "0x6EB69807304823665642D285BA92a04e9c1194B8",
+        chainId == 59141
+          ? "0x6EB69807304823665642D285BA92a04e9c1194B8"
+          : "0x6EB69807304823665642D285BA92a04e9c1194B8",
       ],
     });
   }
@@ -47,10 +75,7 @@ export function CreateCampaign() {
           title: "Waiting for confirmation...",
           action: (
             <ToastAction altText="Explorer" asChild>
-              <Link
-                target="_blank"
-                href={`https://sepolia.lineascan.build/tx/${hash}`}
-              >
+              <Link target="_blank" href={`${explorer}/tx/${hash}`}>
                 Explorer
               </Link>
             </ToastAction>
@@ -64,10 +89,7 @@ export function CreateCampaign() {
           title: "Transaction confirmed.",
           action: (
             <ToastAction altText="Explorer" asChild>
-              <Link
-                target="_blank"
-                href={`https://sepolia.lineascan.build/tx/${hash}`}
-              >
+              <Link target="_blank" href={`${explorer}/tx/${hash}`}>
                 Explorer
               </Link>
             </ToastAction>

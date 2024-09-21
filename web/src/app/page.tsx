@@ -12,11 +12,23 @@ const query = gql`
       id
       creator
       campaignAddress
+      name
+      description
+      imageURL
+      tags
+      raisingFor
+      need
+      beneficiary
+      goal
+      duration
+      yieldStrategy
       blockNumber
       blockTimestamp
+      transactionHash
     }
   }
 `;
+
 const url =
   "https://api.studio.thegraph.com/query/89493/handsup/version/latest";
 export default async function Home() {

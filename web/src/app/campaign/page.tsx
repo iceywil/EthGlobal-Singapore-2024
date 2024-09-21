@@ -271,7 +271,13 @@ export default function Component() {
               />
             </div>
             <div className="mt-8 text-center">
-              <CreateCampaign />
+              <CreateCampaign
+                name="Campaign Name"
+                tags={selectedCategories}
+                raisingFor={selectedFundOption || ""}
+                need={selectedNeed || ""}
+                goal={BigInt(goalAmount || "0")}
+              />
             </div>
           </section>
         </div>
