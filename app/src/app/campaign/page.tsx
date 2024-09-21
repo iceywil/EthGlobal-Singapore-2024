@@ -238,7 +238,7 @@ export default function Component() {
           </section>
           <section className="w-full flex-shrink-0 pl-4">
             <h2 className="text-3xl font-serif mb-6 text-center text-gray-900">
-              Your Crowdfunding Summary
+              Your Pot Summary
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <SummaryItem

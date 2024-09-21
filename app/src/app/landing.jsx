@@ -41,7 +41,7 @@ export default function Component() {
             />
           </h1>
           <p className="text-2xl md:text-3xl mb-6 text-gray-900">
-            The donation, rethought.
+            The Donation, rethought.
             <br />
             Where everybody wins.
           </p>
