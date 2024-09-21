@@ -5,6 +5,7 @@ import Onramp from './onramp';
 import Offramp from './offramp';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Input } from "@/components/ui/input"
 
 const USDC_CONTRACT_ADDRESS = '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'; // Mainnet USDC
 
@@ -35,34 +36,35 @@ export default function Navbar() {
 	}, [balanceData]);
 
 	return (
-		<header className="w-full bg-white">
-			<div className="container mx-auto flex items-center justify-between py-2 px-4">
-				{/* Input Section */}
-				<div className="flex-1 basis-1/3 flex justify-start">
-					<input
-						className="w-full bg-gray-100 border-none p-2 rounded"
-						placeholder="Search projects, creators, categories"
-						type="text"
-					/>
-				</div>
 
-				{/* Logo and Handout Text */}
-				<div className="flex-1 basis-1/3 flex items-center justify-center space-x-4">
-					<Image src="/logo.png" alt="Handout Logo" width={100} height={100} />
-					<div className="text-4xl font-serif text-gray-900 font-bold">handout</div>
-				</div>
+				<header className="container mx-auto px-4 py-4 flex items-center justify-between">
 
-				{/* Navigation */}
-				<nav className="flex-1 basis-1/3 flex items-center space-x-8">
-					<div className="flex items-center space-x-4">
-						<div className="text-gray-600 border-2 p-2 border-black">
-							{isConnected ? `Balance: ${usdcBalance} USDC` : 'Balance: 0 USDC'}
-						</div>
-						<w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
+					<div className="flex-1 basis-1/3 flex justify-start">
+						<Input
+							className="max-w-xs bg-[#D9D9D9] border-none text-center"
+							placeholder="Search projects, creators, categories"
+							style={{ borderRadius: '20px' }}
+						/>
 					</div>
-				</nav>
-			</div>
-		</header>
+					<div className="flex-1 basis-1/3 flex justify-center">
+						<Image
+							src="/handsup.png"
+							alt="handsUp Logo"
+							width={80}
+							height={20}
+							className="header-logo"
+						/>
+					</div>
+					<nav className="flex-1 basis-1/3 flex items-center justify-end space-x-8">
+						<div className="flex items-center space-x-4">
+							<div className="text-gray-600 border-2 p-2 border-black">
+								{isConnected ? `Balance: ${usdcBalance} USDC` : 'Balance: 0 USDC'}
+							</div>
+							<w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
+						</div>
+					</nav>
+				</header>
+
 	);
 }
 
