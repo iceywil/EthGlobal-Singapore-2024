@@ -46,7 +46,7 @@ export default function Navbar() {
 							style={{ borderRadius: '20px' }}
 						/>
 					</div>
-					<div className="flex-1 basis-1/3 flex justify-center">
+					<Link href="/" className="flex-1 basis-1/3 flex justify-center">
 						<Image
 							src="/handsup.png"
 							alt="handsUp Logo"
@@ -54,7 +54,7 @@ export default function Navbar() {
 							height={20}
 							className="header-logo"
 						/>
-					</div>
+					</Link>
 					<nav className="flex-1 basis-1/3 flex items-center justify-end space-x-8">
 						<div className="flex items-center space-x-4">
 							<div className="text-gray-600 border-2 p-2 border-black">
