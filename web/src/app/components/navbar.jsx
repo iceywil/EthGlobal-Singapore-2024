@@ -56,9 +56,11 @@ export default function Navbar() {
 					</Link>
 					<nav className="flex-1 basis-1/3 flex items-center justify-end space-x-8">
 						<div className="flex items-center space-x-4">
-							<div className="text-gray-600 border-2 p-2 border-black rounded-full">
-								{isConnected ? `Balance: ${usdcBalance} USDC` : 'Balance: 0 USDC'}
-							</div>
+							{isConnected && (
+								<div className="text-gray-600 border-2 p-2 border-black rounded-full">
+									Balance: {usdcBalance} USDC
+								</div>
+							)}
 							<w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
 						</div>
 					</nav>

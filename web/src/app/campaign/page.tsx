@@ -89,16 +89,18 @@ export default function Component() {
         <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${step * 100}%)` }}>
           <section className="w-full flex-shrink-0">
             <h2 className="text-3xl font-serif mb-6 text-center text-gray-900">What are the funds for ?</h2>
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {categories.map((category) => (
-                <CategoryButton 
-                  key={category} 
-                  isSelected={selectedCategories.includes(category)}
-                  onClick={() => handleCategoryClick(category)}
-                >
-                  {category}
-                </CategoryButton>
-              ))}
+            <div className="max-w-3xl mx-auto"> {/* Added this wrapper div */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8">
+                {categories.map((category) => (
+                  <CategoryButton 
+                    key={category} 
+                    isSelected={selectedCategories.includes(category)}
+                    onClick={() => handleCategoryClick(category)}
+                  >
+                    {category}
+                  </CategoryButton>
+                ))}
+              </div>
             </div>
             <h2 className="text-3xl font-serif mb-6 text-center text-gray-900">Who are you raising funds for?</h2>
             <div className="flex justify-center text-gray-900 gap-8">
