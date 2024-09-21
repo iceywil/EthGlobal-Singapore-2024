@@ -8,9 +8,9 @@ dataSources:
     name: HandOutFactory
     network: linea-sepolia
     source:
-      address: "0xfB979D86e10Fd018803C8bd8D74C131d813893e1"
+      address: "0x0707594e6123c32a24ad5C646B2ECB735322EC95"
       abi: HandOutFactory
-      startBlock: 3839021
+      startBlock: 3839445
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
@@ -24,7 +24,7 @@ dataSources:
         - name: HandOutFactory
           file: ./abis/HandOutFactory.json
       eventHandlers:
-        - event: CampaignDeployed(indexed address,address)
+        - event: CampaignDeployed(indexed address,address,string,string,string,string[],string,string,address,uint256,uint256,address)
           handler: handleCampaignDeployed
         - event: OwnershipTransferred(indexed address,indexed address)
           handler: handleOwnershipTransferred

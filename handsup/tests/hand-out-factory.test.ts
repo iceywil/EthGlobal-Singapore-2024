@@ -6,7 +6,7 @@ import {
   beforeAll,
   afterAll
 } from "matchstick-as/assembly/index"
-import { Address } from "@graphprotocol/graph-ts"
+import { Address, BigInt } from "@graphprotocol/graph-ts"
 import { CampaignDeployed } from "../generated/schema"
 import { CampaignDeployed as CampaignDeployedEvent } from "../generated/HandOutFactory/HandOutFactory"
 import { handleCampaignDeployed } from "../src/hand-out-factory"
@@ -23,9 +23,33 @@ describe("Describe entity assertions", () => {
     let campaignAddress = Address.fromString(
       "0x0000000000000000000000000000000000000001"
     )
+    let name = "Example string value"
+    let description = "Example string value"
+    let imageURL = "Example string value"
+    let tags = ["Example string value"]
+    let raisingFor = "Example string value"
+    let need = "Example string value"
+    let beneficiary = Address.fromString(
+      "0x0000000000000000000000000000000000000001"
+    )
+    let goal = BigInt.fromI32(234)
+    let duration = BigInt.fromI32(234)
+    let yieldStrategy = Address.fromString(
+      "0x0000000000000000000000000000000000000001"
+    )
     let newCampaignDeployedEvent = createCampaignDeployedEvent(
       creator,
-      campaignAddress
+      campaignAddress,
+      name,
+      description,
+      imageURL,
+      tags,
+      raisingFor,
+      need,
+      beneficiary,
+      goal,
+      duration,
+      yieldStrategy
     )
     handleCampaignDeployed(newCampaignDeployedEvent)
   })
@@ -51,6 +75,66 @@ describe("Describe entity assertions", () => {
       "CampaignDeployed",
       "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
       "campaignAddress",
+      "0x0000000000000000000000000000000000000001"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "name",
+      "Example string value"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "description",
+      "Example string value"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "imageURL",
+      "Example string value"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "tags",
+      "[Example string value]"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "raisingFor",
+      "Example string value"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "need",
+      "Example string value"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "beneficiary",
+      "0x0000000000000000000000000000000000000001"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "goal",
+      "234"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "duration",
+      "234"
+    )
+    assert.fieldEquals(
+      "CampaignDeployed",
+      "0xa16081f360e3847006db660bae1c6d1b2e17ec2a-1",
+      "yieldStrategy",
       "0x0000000000000000000000000000000000000001"
     )
 

@@ -2,6 +2,16 @@ type CampaignDeployed @entity(immutable: true) {
   id: Bytes!
   creator: Bytes! # address
   campaignAddress: Bytes! # address
+  name: String! # string
+  description: String! # string
+  imageURL: String! # string
+  tags: [String!]! # string[]
+  raisingFor: String! # string
+  need: String! # string
+  beneficiary: Bytes! # address
+  goal: BigInt! # uint256
+  duration: BigInt! # uint256
+  yieldStrategy: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

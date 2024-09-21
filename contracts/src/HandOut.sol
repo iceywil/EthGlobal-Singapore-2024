@@ -11,6 +11,13 @@ import {IYieldStrategy} from "./IYieldStrategy.sol";
 contract HandOut is Ownable, Pausable, ReentrancyGuard {
     using SafeERC20 for IERC20;
 
+    string name;
+    string description;
+    string imageURL;
+    string[] tags;
+    string raisingFor;
+    string need;
+
     address creator;
     address beneficiary;
     uint256 goal;
@@ -38,11 +45,29 @@ contract HandOut is Ownable, Pausable, ReentrancyGuard {
     event CampaignRefunded(address indexed creator, uint256 totalDeposited);
     event CampaignClaimed(address indexed beneficiary, uint256 totalYield);
 
-    constructor(address _beneficiary, uint256 _goal, uint256 _duration, IYieldStrategy _yieldStrategy) Ownable() {
+    constructor(
+        string memory _name,
+        string memory _description,
+        string memory _imageURL,
+        string[] memory _tags,
+        string memory _raisingFor,
+        string memory _need,
+        address _beneficiary,
+        uint256 _goal,
+        uint256 _duration,
+        IYieldStrategy _yieldStrategy
+    ) Ownable() {
         require(_goal > 0, "Goal must be greater than zero");
         require(_duration > 0, "Duration must be greater than zero");
         require(_beneficiary != address(0), "Invalid beneficiary address");
         require(address(_yieldStrategy) != address(0), "Invalid yield strategy address");
+
+        name = _name;
+        description = _description;
+        imageURL = _imageURL;
+        tags = _tags;
+        raisingFor = _raisingFor;
+        need = _need;
 
         creator = msg.sender;
         beneficiary = _beneficiary;

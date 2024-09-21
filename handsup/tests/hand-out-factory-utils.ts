@@ -1,5 +1,5 @@
 import { newMockEvent } from "matchstick-as"
-import { ethereum, Address } from "@graphprotocol/graph-ts"
+import { ethereum, Address, BigInt } from "@graphprotocol/graph-ts"
 import {
   CampaignDeployed,
   OwnershipTransferred,
@@ -9,7 +9,17 @@ import {
 
 export function createCampaignDeployedEvent(
   creator: Address,
-  campaignAddress: Address
+  campaignAddress: Address,
+  name: string,
+  description: string,
+  imageURL: string,
+  tags: Array<string>,
+  raisingFor: string,
+  need: string,
+  beneficiary: Address,
+  goal: BigInt,
+  duration: BigInt,
+  yieldStrategy: Address
 ): CampaignDeployed {
   let campaignDeployedEvent = changetype<CampaignDeployed>(newMockEvent())
 
@@ -22,6 +32,48 @@ export function createCampaignDeployedEvent(
     new ethereum.EventParam(
       "campaignAddress",
       ethereum.Value.fromAddress(campaignAddress)
+    )
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam("name", ethereum.Value.fromString(name))
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam(
+      "description",
+      ethereum.Value.fromString(description)
+    )
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam("imageURL", ethereum.Value.fromString(imageURL))
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam("tags", ethereum.Value.fromStringArray(tags))
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam("raisingFor", ethereum.Value.fromString(raisingFor))
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam("need", ethereum.Value.fromString(need))
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam(
+      "beneficiary",
+      ethereum.Value.fromAddress(beneficiary)
+    )
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam("goal", ethereum.Value.fromUnsignedBigInt(goal))
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam(
+      "duration",
+      ethereum.Value.fromUnsignedBigInt(duration)
+    )
+  )
+  campaignDeployedEvent.parameters.push(
+    new ethereum.EventParam(
+      "yieldStrategy",
+      ethereum.Value.fromAddress(yieldStrategy)
     )
   )
 
