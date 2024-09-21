@@ -3,8 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Web3ModalProvider from "./wagmiProvider";
 import { headers } from "next/headers";
-import { config } from "@/lib/wagmiConfig";
-import { cookieToInitialState } from "wagmi";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,7 +28,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Web3ModalProvider cookies={cookies}>{children}</Web3ModalProvider>
+        <Web3ModalProvider cookies={cookies}>
+			{children}
+			</Web3ModalProvider>
       </body>
     </html>
   );

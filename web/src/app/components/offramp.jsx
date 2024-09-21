@@ -17,8 +17,8 @@ export default function Offramp() {
 
 			<MoonPaySellWidget
 				variant="embedded"
-				baseCurrencyCode="eth"
-				baseCurrencyAmount="0.1"
+				baseCurrencyCode="usdc"
+				baseCurrencyAmount="100"
 				quoteCurrencyCode="usd"
 				visible/>
 			</div>
