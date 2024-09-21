@@ -41,9 +41,9 @@ export default function Component() {
             />
           </h1>
           <p className="text-2xl md:text-3xl mb-6 text-gray-900">
-            The crowdfunding, rethought.
+            The donation, rethought.
             <br />
-            Where everyone wins.
+            Where everybody wins.
           </p>
         </div>
         <Link href="/campaign">

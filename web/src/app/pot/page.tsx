@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
 
 // Custom number formatting function
-const formatNumber = (number) => {
+const formatNumber = (number: number) => {
   return new Intl.NumberFormat('en-US', { 
     minimumFractionDigits: 2, 
     maximumFractionDigits: 2 
@@ -19,10 +19,10 @@ const formatNumber = (number) => {
 };
 
 export default function Pot() {
-	const [amountStacked, setAmountStacked] = useState(0)
+	const [amountStacked, setAmountStacked] = useState<number | null>(null);
 	const [customAmount, setCustomAmount] = useState('')
 	const [lockDuration, setLockDuration] = useState(0)
-	const [selectedAmount, setSelectedAmount] = useState(null)
+	const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
 	const [donationAmount, setDonationAmount] = useState(0)
 	const objective = 10000
 	const baseYield = 0.097 // 9.7% annual yield
@@ -34,18 +34,18 @@ export default function Pot() {
 		}
 	}, [customAmount])
 
-	const handleAmountClick = (amount) => {
+	const handleAmountClick = (amount: number) => {
 		if (selectedAmount === amount) {
 			setSelectedAmount(null)
 			setAmountStacked(0)
 		} else {
-			setSelectedAmount(amount)
-			setAmountStacked(amount)
+			setSelectedAmount(amount as number)
+			setAmountStacked(amount as number)
 			setCustomAmount('')
 		}
 	}
 
-	const formatDuration = (days) => {
+	const formatDuration = (days: number) => {
 		if (days < 30) return `${days} days`
 		if (days < 365) {
 			const months = Math.floor(days / 30)
@@ -58,7 +58,7 @@ export default function Pot() {
 
 	const calculateYield = () => {
 		const annualYield = baseYield * (lockDuration / 365)
-		return amountStacked * annualYield
+		return (amountStacked ?? 0) * annualYield
 	}
 
 	const totalContribution = Number(calculateYield()) + Number(donationAmount)
@@ -156,7 +156,7 @@ export default function Pot() {
 									className="w-full bg-[#F7D1D1] text-black font-bold hover:bg-[#F5B8B8] text-lg px-8 py-2 rounded-full"
 									onClick={() => {
 										// Here you would typically handle the submission
-										alert(`Locked: $${formatNumber(amountStacked)}, Donated: $${formatNumber(donationAmount)}, Total Contribution: $${formatNumber(totalContribution)}`)
+										alert(`Locked: $${formatNumber(amountStacked ?? 0)}, Donated: $${formatNumber(donationAmount ?? 0)}, Total Contribution: $${formatNumber(totalContribution ?? 0)}`)
 									}}
 								>
 									Confirm your contribution

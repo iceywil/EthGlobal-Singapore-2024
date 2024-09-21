@@ -43,7 +43,7 @@ const ReviewCard = ({
 
 export default function Marc() {
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="relative w-full overflow-hidden bg-white">
       <Marquee pauseOnHover className="py-8 [--duration:40s]">
         {reviews.map((review) => (
           <ReviewCard img={review.img} name={review.name} />
