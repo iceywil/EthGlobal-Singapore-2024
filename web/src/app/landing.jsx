@@ -5,10 +5,27 @@ import Navbar from "./components/navbar"
 
 export default function Component() {
   return (
-    <div className="min-h-screen bg-[#FCF7E9] flex flex-col">
+    <div className="min-h-screen bg-[#FCF7E9] flex flex-col relative">
       <div className="w-full border-b-[2px] border-[#D42A20]">
         <Navbar/>
       </div>
+      
+      <div className="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 ">
+        <span className="text-5xl font-serif text-[#D42A20]">secure</span>
+      </div>
+
+	  <div className="absolute top-1/4 left-3/4 transform -translate-x-1/2 -translate-y-1/2 ">
+        <span className="text-5xl font-serif text-[#D42A20]">low-fees</span>
+      </div>
+
+	  <div className="absolute top-3/4 left-3/4 transform -translate-x-1/2 -translate-y-1/2 ">
+        <span className="text-5xl font-serif text-[#D42A20]">censorless</span>
+      </div>
+
+	  <div className="absolute top-3/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 ">
+        <span className="text-5xl font-serif text-[#D42A20]">free</span>
+      </div>
+
       <main className="flex-grow flex flex-col items-center justify-center px-4 mt-[50px]">
         <div className="text-center mb-20">
           <h1 className="text-5xl md:text-7xl font-serif text-gray-900 mb-4">
