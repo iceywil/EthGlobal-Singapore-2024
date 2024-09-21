@@ -1,8 +1,7 @@
+"use client"
 import { useState, useEffect } from 'react';
 import { useAccount, useBalance } from 'wagmi';
 import { formatUnits } from 'ethers'; // Import formatUnits from ethers
-import Onramp from './onramp';
-import Offramp from './offramp';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Input } from "@/components/ui/input"
@@ -57,7 +56,7 @@ export default function Navbar() {
 					</Link>
 					<nav className="flex-1 basis-1/3 flex items-center justify-end space-x-8">
 						<div className="flex items-center space-x-4">
-							<div className="text-gray-600 border-2 p-2 border-black">
+							<div className="text-gray-600 border-2 p-2 border-black rounded-full">
 								{isConnected ? `Balance: ${usdcBalance} USDC` : 'Balance: 0 USDC'}
 							</div>
 							<w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
