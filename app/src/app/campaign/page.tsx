@@ -77,6 +77,7 @@ export default function Component() {
   const [goalAmount, setGoalAmount] = useState("");
   const [selectedDeadline, setSelectedDeadline] = useState<string | null>(null);
   const [customMonths, setCustomMonths] = useState("");
+  const [potName, setPotName] = useState('');
 
   const categories = [
     "Animals",
@@ -136,6 +137,17 @@ export default function Component() {
           style={{ transform: `translateX(-${step * 100}%)` }}
         >
           <section className="w-full flex-shrink-0">
+		  <h2 className="text-3xl font-serif mb-6 text-center text-gray-900">
+              What is the name of your pot ?
+            </h2>
+			<Input
+              type="text"
+              placeholder="Your pot name"
+              value={potName}
+              onChange={(e) => setPotName(e.target.value)}
+              className="max-w-sm mx-auto bg-[#D9D9D9] border-none text-center mb-8 text-black"  // Added mb-8 for margin-bottom
+              style={{ borderRadius: "20px" }}
+            />
             <h2 className="text-3xl font-serif mb-6 text-center text-gray-900">
               What are the funds for ?
             </h2>
@@ -239,6 +251,10 @@ export default function Component() {
               Your Pot Summary
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+				<SummaryItem
+                label="Pot Name"
+                value={potName || "Not set"}
+              />
               <SummaryItem
                 label="Categories"
                 value={
