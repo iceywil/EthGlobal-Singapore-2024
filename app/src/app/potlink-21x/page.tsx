@@ -1,13 +1,12 @@
 "use client";
 
 import Navbar from "../components/navbar"
-import Link from "next/link"
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Slider } from "@/components/ui/slider"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "../components/ui/input"
+import { Button } from "../components/ui/button"
+import { Slider } from "../components/ui/slider"
+import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
 import Image from "next/image"
 
 export default function Pot() {

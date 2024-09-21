@@ -4,7 +4,7 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import { gql, request } from "graphql-request";
-import Data from "@/components/Data";
+import Data from "../components/Data";
 const query = gql`
   {
     campaignDeployeds(first: 5) {

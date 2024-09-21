@@ -6,9 +6,9 @@ import {
   useAccount,
 } from "wagmi";
 import { parseAbi } from "viem";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { ToastAction } from "@/components/ui/toast";
+import { ToastAction } from "./ui/toast";
 import Link from "next/link";
 
 export function CreateCampaign() {

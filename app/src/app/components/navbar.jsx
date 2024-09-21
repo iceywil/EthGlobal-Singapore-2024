@@ -4,7 +4,7 @@ import { useAccount, useBalance } from 'wagmi';
 import { formatUnits } from 'ethers'; // Import formatUnits from ethers
 import Link from 'next/link';
 import Image from 'next/image';
-import { Input } from "@/components/ui/input"
+import { Input } from "./ui/input"
 
 const USDC_CONTRACT_ADDRESS = '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'; // Mainnet USDC
 

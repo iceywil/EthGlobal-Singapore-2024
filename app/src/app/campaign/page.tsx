@@ -1,11 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { Input } from "../components/ui/input";
+import { Button } from "../components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import Image from "next/image";
 import Navbar from "../components/navbar";
 import { CreateCampaign } from "../components/create-campaign";
 
