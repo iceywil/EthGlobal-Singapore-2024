@@ -3,9 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Web3ModalProvider from "./wagmiProvider";
 import { headers } from "next/headers";
-import { config } from "@/lib/wagmiConfig";
-import { cookieToInitialState } from "wagmi";
-import { MoonPayProvider } from "@moonpay/moonpay-react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

@@ -9,6 +9,12 @@ import { Input } from "@/components/ui/input"
 const USDC_CONTRACT_ADDRESS = '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48'; // Mainnet USDC
 
 export default function Navbar() {
+	const [mounted, setMounted] = useState(false);
+
+useEffect(() => {
+  setMounted(true);
+}, []);
+
 	const { address, isConnected } = useAccount(); // Get wallet connection status
 	const [usdcBalance, setUsdcBalance] = useState(0);
 
@@ -55,14 +61,16 @@ export default function Navbar() {
 				/>
 			</Link>
 			<nav className="flex-1 basis-1/3 flex items-center justify-end space-x-8">
-				<div className="flex items-center space-x-4">
-					{isConnected && (
-						<div className="text-gray-600 border-2 p-2 border-black rounded-full">
-							Balance: {usdcBalance} USDC
-						</div>
-					)}
-					<w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
-				</div>
+			{mounted && (
+  <div className="flex items-center space-x-4">
+    {isConnected && (
+      <div className="text-gray-600 border-2 p-2 border-black rounded-full">
+        Balance: {usdcBalance} USDC
+      </div>
+    )}
+    <w3m-button balance="hide" label={isConnected ? 'Connected' : 'Login'} />
+  </div>
+)}
 			</nav>
 		</header>
 
