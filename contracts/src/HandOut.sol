@@ -55,14 +55,19 @@ contract HandOut is Ownable, Pausable, ReentrancyGuard {
         isActive = true;
     }
 
-    function contribute(uint256 amount) external payable whenNotPaused nonReentrant {
+    function contribute(uint256 amount, bool donation) external payable whenNotPaused nonReentrant {
         require(isActive, "Campaign is not active");
         require(block.timestamp < endTime, "Campaign has ended");
+        require(amount > 0, "Amount must be greater than zero");
 
-        IERC20(yieldStrategy.token()).transferFrom(msg.sender, address(this), amount);
+        if (!donation) {
+            IERC20(yieldStrategy.token()).transferFrom(msg.sender, address(this), amount);
+            deposits[msg.sender] += amount;
+        } else {
+            IERC20(yieldStrategy.token()).transferFrom(msg.sender, address(this), amount);
+        }
 
         totalDeposited += amount;
-        deposits[msg.sender] += amount;
 
         emit Contribution(msg.sender, amount);
     }
@@ -81,6 +86,11 @@ contract HandOut is Ownable, Pausable, ReentrancyGuard {
 
     function claim() external whenNotPaused nonReentrant {
         require(isActive, "Campaign is not active");
+
+        uint256 amount = IERC20(yieldStrategy.token()).balanceOf(address(this));
+        if (amount > 0) {
+            IERC20(yieldStrategy.token()).transfer(beneficiary, amount);
+        }
 
         uint256 yield = yieldStrategy.claim();
         totalYield += yield;

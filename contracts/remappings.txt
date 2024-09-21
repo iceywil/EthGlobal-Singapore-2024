@@ -7,3 +7,4 @@ openzeppelin-foundry-upgrades/=lib/openzeppelin-foundry-upgrades/src/
 openzeppelin/=lib/openzeppelin-contracts-upgradeable/contracts/
 solidity-stringutils/=lib/openzeppelin-foundry-upgrades/lib/solidity-stringutils/
 @chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/src/
+stargate-v2/=lib/stargate-v2/packages/stg-evm-v2/src/
