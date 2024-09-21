@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button"
 import { Slider } from "@/components/ui/slider"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import Image from "next/image"
-import { MoonPayProvider } from '@moonpay/moonpay-react';
 
 export default function Pot() {
 	const [amountStacked, setAmountStacked] = useState(100)
@@ -58,10 +57,7 @@ export default function Pot() {
 	const progress = (totalContribution / objective) * 100
 
 	return (
-		< MoonPayProvider
-		apiKey="pk_test_k497jsJzweBMFOhxsVUtst4nysd21jSs"
-		debug
-	>
+	
 		<div className="min-h-screen bg-[#FFFBF5] flex flex-col">
 			<Navbar />
 			<div className="flex flex-col lg:flex-row flex-grow bg-gradient-to-br from-blue-100 to-green-100">
@@ -184,6 +180,5 @@ export default function Pot() {
 				</div>
 			</div>
 		</div>
-		</MoonPayProvider>
 	)
 }
