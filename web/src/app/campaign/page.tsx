@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 
 const CategoryButton = ({ children, isSelected, onClick }: { children: React.ReactNode, isSelected: boolean, onClick: () => void }) => (
   <button 
@@ -82,13 +83,23 @@ export default function Component() {
     <div className="min-h-screen bg-[#FCF7E9] flex flex-col">
       <div className="w-full border-b-[2px] border-[#D42A20]">
         <header className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Input
-            className="max-w-xs bg-[#D9D9D9] border-none text-center"
-            placeholder="Search projects, creators, categories"
-            style={{ borderRadius: '20px' }}
-          />
-          <div className="text-3xl font-serif text-gray-900 header-text">handsUp</div>
-          <nav className="hidden md:flex items-center space-x-10">
+          <div className="flex-1 flex justify-start">
+            <Input
+              className="max-w-xs bg-[#D9D9D9] border-none text-center"
+              placeholder="Search projects, creators, categories"
+              style={{ borderRadius: '20px' }}
+            />
+          </div>
+          <div className="flex-1 flex justify-center">
+            <Image
+              src="/handsup.png"
+              alt="handsUp Logo"
+              width={80}
+              height={20}
+              className="header-logo"
+            />
+          </div>
+          <nav className="flex-1 hidden md:flex items-center justify-end space-x-10">
             <Link className="text-gray-600 hover:text-gray-900" href="#">
               How it's work
             </Link>

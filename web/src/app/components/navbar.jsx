@@ -35,36 +35,35 @@ export default function Navbar() {
 	}, [balanceData]);
 
 	return (
-		<header className="container flex items-center justify-between py-2 px-4">
-			{/* Input Section */}
-			<div className="flex-1 basis-1/3 flex justify-start">
-				<input
-					className="w-full bg-gray-100 border-none p-2 rounded"
-					placeholder="Search projects, creators, categories"
-					type="text"
-				/>
-			</div>
-
-			{/* Logo and Handout Text */}
-			<div className="flex-1 basis-1/3 flex items-center justify-center space-x-4">
-				<Image src="/logo.png" alt="Handout Logo" width={100} height={100} />
-				<div className="text-4xl font-serif text-gray-600">HANDOUT</div>
-			</div>
-
-			{/* Navigation */}
-			<nav className="flex-1 basis-1/3 flex items-center space-x-8">
-				<Link className="text-gray-600 hover:text-gray-900" href="#docs">
-					How it works
-				</Link>
-				<Onramp />
-				<Offramp />
-				<div className="flex items-center space-x-4">
-					<div className="text-gray-600 border-2 p-2 border-black">
-						{isConnected ? `Balance: ${usdcBalance} USDC` : 'Balance: 0 USDC'}
-					</div>
-					<w3m-button show="hide" label={isConnected ? 'Connected' : 'Login'} />
+		<header className="w-full bg-white">
+			<div className="container mx-auto flex items-center justify-between py-2 px-4">
+				{/* Input Section */}
+				<div className="flex-1 basis-1/3 flex justify-start">
+					<input
+						className="w-full bg-gray-100 border-none p-2 rounded"
+						placeholder="Search projects, creators, categories"
+						type="text"
+					/>
 				</div>
-			</nav>
+
+				{/* Logo and Handout Text */}
+				<div className="flex-1 basis-1/3 flex items-center justify-center space-x-4">
+					<Image src="/logo.png" alt="Handout Logo" width={100} height={100} />
+					<div className="text-4xl font-serif text-gray-900 font-bold">handout</div>
+				</div>
+
+				{/* Navigation */}
+				<nav className="flex-1 basis-1/3 flex items-center space-x-8">
+					<Onramp />
+					<Offramp />
+					<div className="flex items-center space-x-4">
+						<div className="text-gray-600 border-2 p-2 border-black">
+							{isConnected ? `Balance: ${usdcBalance} USDC` : 'Balance: 0 USDC'}
+						</div>
+						<w3m-button show="hide" label={isConnected ? 'Connected' : 'Login'} />
+					</div>
+				</nav>
+			</div>
 		</header>
 	);
 }

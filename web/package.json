@@ -13,6 +13,7 @@
     "@moonpay/moonpay-react": "^1.8.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-slider": "^1.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@reown/appkit": "^1.0.2",
     "@reown/appkit-adapter-wagmi": "^1.0.2",
