@@ -11,7 +11,7 @@ export default function Handout() {
 					className="max-w-xs bg-gray-100 border-none"
 					placeholder="Search projects, creators, categories"
 				/>
-				<div className="text-4xl font-serif">HANDOUT</div>
+				<Link href="/" className="text-4xl text-gray-900 font-inter font-bold">HANDOUT</Link>
 				<nav className="hidden md:flex items-center space-x-4">
 					<Link className="text-gray-600 hover:text-gray-900" href="#docs">
 						How it's working
@@ -29,13 +29,13 @@ export default function Handout() {
 				</nav>
 			</header>
 			<main className="flex-grow flex flex-col items-center justify-center text-center px-4">
-				<h1 className="text-5xl md:text-7xl font-serif mb-4">
+				<h1 className="text-5xl md:text-7xl text-gray-900 font-serif mb-4">
 					Help, without any
 					<br />
 					limits
 					<div className="w-48 h-3 bg-red-400 mx-auto mt-2 rounded-full" />
 				</h1>
-				<p className="text-xl md:text-2xl mb-8">
+				<p className="text-xl md:text-2xl text-gray-900 mb-8">
 					The crowdfunding, rethought.
 					<br />
 					Where nobody loose.
