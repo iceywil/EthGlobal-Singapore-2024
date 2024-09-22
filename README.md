@@ -24,6 +24,16 @@ Once the lock is over (the lock time is chosen by the contributor in the process
 
 Of course, the donor is able to choose classic donations.
 
+### On chain proof:
+
+Metamask (Linea) : 0x0707594e6123c32a24ad5C646B2ECB735322EC95
+
+Flow : 0xfB979D86e10Fd018803C8bd8D74C131d813893e1 (facto)
+       0x8E2B2Efb70fC62CC47dba220F3FC5526A90E3d99 (erc20)
+       0xf7B505f489e717cdA25A036225c4DB4408A04c2C (deployer)
+       0x6EB69807304823665642D285BA92a04e9c1194B8 (strategy)
+ 
+
 ![image](https://github.com/user-attachments/assets/2fc363af-8a8e-41ed-b1c7-5956d2b0f263)
 
 <img width="1728" alt="6" src="https://github.com/user-attachments/assets/e30eb1bc-4ec1-4f05-b7cb-03df48893ebf">
