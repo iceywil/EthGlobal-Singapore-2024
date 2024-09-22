@@ -26,11 +26,15 @@ Of course, the donor is able to choose classic donations.
 
 ### On chain proof:
 
-Metamask (Linea) : 0x0707594e6123c32a24ad5C646B2ECB735322EC95
+0xf7B505f489e717cdA25A036225c4DB4408A04c2C (deployer)
+
+
+Metamask (Linea) : 0x0707594e6123c32a24ad5C646B2ECB735322EC95 (facto)
+                   0x8E2B2Efb70fC62CC47dba220F3FC5526A90E3d99 (token erc20)
+                   0x6EB69807304823665642D285BA92a04e9c1194B8 (strategy)
 
 Flow : 0xfB979D86e10Fd018803C8bd8D74C131d813893e1 (facto)
        0x8E2B2Efb70fC62CC47dba220F3FC5526A90E3d99 (erc20)
-       0xf7B505f489e717cdA25A036225c4DB4408A04c2C (deployer)
        0x6EB69807304823665642D285BA92a04e9c1194B8 (strategy)
  
 
