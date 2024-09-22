@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## HandsUp revolutionizes charity with yield return donations, empowering users to multiply their generosity. 🙌
 
-## Getting Started
+Everyone wins due to the yield technology. Help your friends, family, and other charitable causes make something meaningful with this money.
 
-First, run the development server:
+1. What do we change?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Everything related to donations.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Lock your money, and get it all back whenever you decide, and donate to your favorite charity project with the yield generated from the staked money.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Why?
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Donations need to be censorship-free, secure, simple, and cheap.
 
-## Learn More
+That's what we fix.
 
-To learn more about Next.js, take a look at the following resources:
+3. How does it work?
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Instead of directly giving your money, you can make it work for X time for others in a charitable purpose.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Each contribution will be sent into secure DeFi protocols, and the donation recipient will receive the yield return daily.
 
-## Deploy on Vercel
+Once the lock is over (the lock time is chosen by the contributor in the process), the contributor will get back the full amount of their assets. They can also choose liquid yield donation, meaning they can withdraw at any time.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Of course, the donor is able to choose classic donations.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![image](https://github.com/user-attachments/assets/2fc363af-8a8e-41ed-b1c7-5956d2b0f263)
+
+<img width="1728" alt="6" src="https://github.com/user-attachments/assets/e30eb1bc-4ec1-4f05-b7cb-03df48893ebf">
+
+<img width="1728" alt="1" src="https://github.com/user-attachments/assets/10cf1f7c-fa1c-494e-b597-48d03e698da8">
+
+<img width="1728" alt="2" src="https://github.com/user-attachments/assets/f410a803-acd0-4f28-948c-9cb62769badb">
+
+<img width="1728" alt="3" src="https://github.com/user-attachments/assets/d944362f-28a2-4de6-90db-d57d0610db50">
+
+<img width="1728" alt="4" src="https://github.com/user-attachments/assets/bab1a667-e9bf-492c-a51c-dd9e0cef0f8f">
+
+<img width="1728" alt="7" src="https://github.com/user-attachments/assets/49447144-4969-45c6-a92f-257161d141f6">
+
